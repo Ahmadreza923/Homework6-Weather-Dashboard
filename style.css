@@ -1,0 +1,73 @@
+h1{
+    background-color: rgb(26, 24, 24);
+    color: white;
+    text-align: center;
+    height: 70px;
+    width: 100%;
+    padding: 10px;
+}
+#right{
+    height: 300px;
+    width: 100%;
+    background-color:rgb(231, 227, 227);
+    margin-bottom: 1px;
+    margin-right: 2px;
+    border-style:solid;
+    border-color:rgb(182, 180, 176);
+    background-color:rgb(218, 212, 212);
+}
+#rightBottom{
+    height: 238px;
+    width: 100%;
+    margin-right: 2px;
+    /* margin-left: 0px; */
+    border-style:solid;
+    border-color:rgb(182, 180, 176);
+    background-color: rgb(218, 212, 212);
+}
+#left{
+    height: 540px;
+    width: 100%;
+    margin-right: 0px;
+    margin-left:2px ;
+    border-style:solid;
+    border-color:rgb(182, 180, 176);
+    background-color: whitesmoke;
+}
+
+
+/* form.example input[type=text] { */
+#input{
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+/* form.example button { */
+button{
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+  }
+  
+  /* form.example button:hover { */
+button:hover{
+    background: #0b7dda;
+  }
+  
+  
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }  
+
+

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <h1>Weather Dashboard</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <div id="left">
+                <label for="sel1" style="font-size: large; font-weight: bold;">Search for a City:</label>
+                <form class="example"  style="margin:auto;max-width:300px">
+                    <input id="input" type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div id="right">
+                <!-- <div class="temp"></div>
+                <div class="humidity"></div>
+                <div class="wind"></div> -->
+            </div>
+            <div id="rightBottom"></div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        // This is my API key
+        var APIKey = "166a433c57516f51dfab1f7edaed8413";
+        $("button").on("click", function(event) {
+            event.preventDefault();
+            var searchCity=$("#input").val();
+            // Here I'm building the URL I need to query the database
+            var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
+            "q="+searchCity+",Burundi&units=imperial&appid=" + APIKey;
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function(response) {
+                currentCconditions(response) 
+            })
+        })
+
+
+
+function currentCconditions(current){
+    //console.log(current)
+    var currentdate = new Date();
+    var val=currentdate.getDate()+"/"+(currentdate.getMonth()+1)+"/"+currentdate.getFullYear();
+    var result=$("<h>").text(current.name+" ("+val+")")
+    var temperature=$("<p>").text("Temperature"+ current.main.temp);
+    var humidity=$("<p>").text("Humidity: " + current.main.humidity);
+    var windSpeed=$("<p>").text("Wind Speed: " + current.wind.speed);
+
+    //var weatherIcon = $("<img>").attr("src", current.weather[0].icon);
+    //$("result").css("font-size","25px");
+    $("result").css({"background-color": "yellow", "font-size": "200%"});
+
+
+    $("#right").empty();
+    $("#right").append(result,temperature, humidity, windSpeed); 
+
+
+
+        //     $(".city").html("<h1>" + response.name + " Weather Details</h1>");
+        //     // var h1=$("<h1>").text(response.name +" Weather Details");
+        //     // $(".city").append(h1);
+        //     $(".wind").text("Wind Speed: " + response.wind.speed);
+        //     $(".humidity").text("Humidity: " + response.main.humidity);
+        //     $(".temp").text("Temperature (F) " + response.main.temp);
+
+        //     // Converts the temp to Kelvin with the below formula
+        //     var tempF = (response.main.temp - 273.15) * 1.80 + 32;
+        //     $(".tempF").text("Temperature (Kelvin) " + tempF);
+
+        //     // Log the data in the console as well
+        //     console.log("Wind Speed: " + response.wind.speed);
+        //     console.log("Humidity: " + response.main.humidity);
+        //     console.log("Temperature (F): " + response.main.temp);
+
+}
+  
+//   * 5-Day Forecast
+  
+//   * Search history
+
+//   * UV index
+
+// * You will need to make more than one AJAX call.
+
+// * You will need to hardcode some of the parameters in the API's URL. User input will determine some of the other parameters.
+
+// * Use `localStorage` to store any persistent data.
+        
+        
+        
+        
+
+        
+        
+    </script>
+    
+    
+</body>
+</html>
