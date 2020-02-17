@@ -25,7 +25,7 @@ h1{
     background-color: rgb(218, 212, 212);
 }
 #left{
-    height: 540px;
+    height: 480px;
     width: 100%;
     margin-right: 0px;
     margin-left:2px ;
@@ -34,6 +34,15 @@ h1{
     background-color: whitesmoke;
 }
 
+#clear{
+  height: 55px;
+  width: 100%;
+  margin-right: 0px;
+  margin-left:2px ;
+  background: #2196F3;
+  color: white;
+  border: 1px solid grey;
+}
 
 #input{
     padding: 10px;
@@ -68,3 +77,11 @@ button:hover{
   }  
 
 
+  #myTable {
+    width: 78%;
+    margin-top: 20px;
+    margin-left: 6px;
+    float: left;
+  }
+   
+ 
