@@ -26,7 +26,7 @@ $(document).ready(function() {
         }).then(function(response1) {
             var latitude= response1.coord.lat;
             var longitude= response1.coord.lon;
-            var queryURLUVIndex="http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey+ "&lat=" + latitude + "&lon=" + longitude;
+            var queryURLUVIndex="https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey+ "&lat=" + latitude + "&lon=" + longitude;
             var UVIndex;
             $.ajax({ //only for UV index (response 2)
                 url: queryURLUVIndex,
@@ -105,7 +105,7 @@ $(document).ready(function() {
         var humidity=$("<p>").text("Humidity: " + current.main.humidity+" %");
         var windSpeed=$("<p>").text("Wind Speed: " + current.wind.speed+ "MPH");
         var UVind=$("<p>").text("UV Index: "+UV);
-        var iconPng= "http://openweathermap.org/img/w/" + icon+ ".png"; 
+        var iconPng= "https://openweathermap.org/img/w/" + icon+ ".png"; 
         var iconImage=$("<img>").attr("src",iconPng );
         $(result).css({"font-size": "200%"});
         $("#right").empty();
@@ -115,7 +115,7 @@ $(document).ready(function() {
 
     // forecasting five next days and return mean of temp. and mean of humidity. why mean? because there are 8 periods of every three for each day in response.
     function Forecasting(city){  
-        var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=" + APIKey + "&units=imperial";
+        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=" + APIKey + "&units=imperial";
         var iconPng  
         var meanTemperature=[0,0,0,0,0];
         var temperature=[0,0,0,0,0];
@@ -146,7 +146,7 @@ $(document).ready(function() {
             }
             meanTemperature[index]= Math.floor(temperature[index]/6);  //result for first day
             meanHumidity[index]= Math.floor(humidity[index]/6);        //result for fisrt day
-            iconPng= "http://openweathermap.org/img/w/" +response.list[2].weather[0].icon + ".png"; //There are 6 icons for 6 periods of the first day but I show the icon of midday.
+            iconPng= "https://openweathermap.org/img/w/" +response.list[2].weather[0].icon + ".png"; //There are 6 icons for 6 periods of the first day but I show the icon of midday.
             
             for (i=6;i<31;i++){      
                 index++;         
@@ -156,7 +156,7 @@ $(document).ready(function() {
                 }
                 meanTemperature[index]= Math.floor(temperature[index]/8);
                 meanHumidity[index]= Math.floor(humidity[index]/8);
-                iconPng= "http://openweathermap.org/img/w/" +response.list[i+4].weather[0].icon + ".png"; //There are 8 icons for each periods of the rest four days but I show the icon of midday.
+                iconPng= "https://openweathermap.org/img/w/" +response.list[i+4].weather[0].icon + ".png"; //There are 8 icons for each periods of the rest four days but I show the icon of midday.
                 i+=7;
             }
             for (index=0;index<5;index++){
@@ -204,7 +204,7 @@ $(document).ready(function() {
         }).then(function(response1) {
             var latitude= response1.coord.lat;
             var longitude= response1.coord.lon;
-            var queryURLUVIndex="http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey+ "&lat=" + latitude + "&lon=" + longitude;
+            var queryURLUVIndex="https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey+ "&lat=" + latitude + "&lon=" + longitude;
             var UVIndex;
             $.ajax({ //only for UV index (response 2)
                 url: queryURLUVIndex,
